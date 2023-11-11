@@ -23,31 +23,57 @@ export default function Home({ navigation }) {
   if (isError) return <Text>Error</Text>
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={require('/Users/armin/Documents/2223_Sem5/Coding/React Native/2324_CC_BarzegarAminArmin_Eindopdracht/KnittingApp/assets/axearmin.png')}
+      />
+     <Text style={styles.headerText}>Lora Sylvia</Text>
+     <View style={styles.rank}>
+       <View style={styles.gridItem}>
         <Image
-          style={styles.logo}
+          style={styles.iconRank}
           source={require('/Users/armin/Documents/2223_Sem5/Coding/React Native/2324_CC_BarzegarAminArmin_Eindopdracht/KnittingApp/assets/axearmin.png')}
         />
-      <Text style={styles.text}>{network.name}{"\n"}{network.location.city}{"\n"}</Text>
-
-      <Button title='Armin'></Button>
-
-      <TouchableOpacity onPress={() => {navigation.navigate('Detail')}} title='Hello'>
-        <View style={{ backgroundColor: 'blue', padding: 20, borderRadius: 5}}>
-          <Text style={{ color: 'white' }}>Go to Blog</Text>
-        </View>
-      </TouchableOpacity>
-
-      {network.stations.map(station =>
-        <Text key={station.id} style={styles.text}>
-          {station.name}
-        </Text>
-      )}
-
-      <StatusBar style="auto" />
       </View>
-    </ScrollView>
+      <View style={styles.gridItem}>
+        <Text style={styles.bodyText}>843</Text>
+      </View>
+     </View>
+
+      <View style={styles.profileInfo}>
+        <View style={styles.Blogs}>
+          <View style={styles.gridItem}>
+
+          </View>
+          <View style={styles.gridItem}>
+
+          </View>
+        </View>
+        <View style={styles.Followers}>
+          <View style={styles.gridItem}>
+
+          </View>
+          <View style={styles.gridItem}>
+
+          </View>
+        </View>
+        <View style={styles.Following}>
+          <View style={styles.gridItem}>
+
+          </View>
+          <View style={styles.gridItem}>
+
+          </View>
+        </View>
+      </View>
+
+
+
+    <StatusBar style="auto" />
+    </View>
+
+
   );
 }
 
@@ -67,11 +93,36 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 100
   },
-  text: {
+  headerText: {
     color: '#FFF',
-    fontSize: '18px',
+    fontSize: '24px',
     fontFamily: 'Inter_900Black',
     textAlign:'center'
   },
+  iconRank: {
+    width: 30,
+    height: 30,
+    margin: 0,
+    borderRadius: 100,
+  },
+  bodyText: {
+    color: '#FFF',
+    fontSize: '16px',
+    fontFamily: 'Inter_900Black',
+    textAlign:'center',
+    padding: 2
+  },
+  rank: {
+    flexDirection: 'row',
+    padding: 6,
+    margin: 24,
+    alignItems:'center',
+    borderRadius:'100%',
+    backgroundColor:'blue'
+  },
+  gridItem: {
+    marginHorizontal: 2, // Adjust margin as needed
+  },
+
 });
 
