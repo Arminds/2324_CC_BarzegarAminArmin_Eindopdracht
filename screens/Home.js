@@ -8,6 +8,8 @@ import useNetwork from '../data/network'
 
 export default function Home({ navigation }) {
 
+  const axearminimage = require('../assets/axearmin.png'); //constante voor foto
+
   const {network, isLoading, isError} = useNetwork()
   console.log(network);
 
@@ -26,14 +28,14 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('/Users/armin/Documents/2223_Sem5/Coding/React Native/2324_CC_BarzegarAminArmin_Eindopdracht/KnittingApp/assets/axearmin.png')}
+        source={axearminimage}
       />
      <Text style={styles.headerText}>Lora Sylvia</Text>
      <View style={styles.rank}>
        <View style={styles.gridItem}>
         <Image
           style={styles.iconRank}
-          source={require('/Users/armin/Documents/2223_Sem5/Coding/React Native/2324_CC_BarzegarAminArmin_Eindopdracht/KnittingApp/assets/axearmin.png')}
+          source={axearminimage}
         />
       </View>
       <View style={styles.gridItem}>
