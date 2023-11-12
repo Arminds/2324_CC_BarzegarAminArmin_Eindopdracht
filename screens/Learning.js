@@ -8,10 +8,10 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 
 const Stack = createNativeStackNavigator();
 
-export default function Detail({navigation}) {
+export default function Learning({navigation}) {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Settings" component={Settings} options={{title: 'Detail'}} />
+      <Stack.Screen name="Settings" component={Settings} options={{title: 'Learning'}} />
       <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator> 
   );
