@@ -8,8 +8,8 @@ import useNetwork from '../../data/network'
 
 export default function Home({ navigation }) {
 
-  const axearminimage = require('../assets/axearmin.png'); //constante voor foto
-  const starsvg = require('../assets/star.png'); //constante voor foto
+  const axearminimage = require('../../assets/axearmin.png'); //constante voor foto
+  const starsvg = require('../../assets/star.png'); //constante voor foto
 
   const {network, isLoading, isError} = useNetwork()
   console.log(network);

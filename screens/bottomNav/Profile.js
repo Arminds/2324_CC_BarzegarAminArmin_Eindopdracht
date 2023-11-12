@@ -6,8 +6,8 @@ import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpa
 
 export default function Profile({navigation}) {
 
-  const axearminimage = require('../assets/axearmin.png'); //constante voor foto
-  const starIcon = require('../assets/star.png'); //constante voor foto
+  const axearminimage = require('../../assets/axearmin.png'); //constante voor foto
+  const starIcon = require('../../assets/star.png'); //constante voor foto
 
   return (
     <View style={styles.container}>

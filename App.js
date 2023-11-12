@@ -11,11 +11,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
   
-const home = require('./assets/Home.png');
-const learning = require('./assets/Learning.png');
-const profile = require('./assets/Profile.png');
-const post = require('./assets/Post.png');
-const battles = require('./assets/Battles.png');
+const home = require('./assets/Icons/Home.png');
+const learning = require('./assets/Icons/Learning.png');
+const profile = require('./assets/Icons/Profile.png');
+const post = require('./assets/Icons/Post.png');
+const battles = require('./assets/Icons/Battles.png');
 
 export default function App() {
   return (
@@ -59,7 +59,7 @@ export default function App() {
             tabBarLabel: 'Learning',
             tabBarIcon: () => (
               <Image
-                style={{ width: 20, height: 20}}
+                style={{ width: 18, height: 22}}
                 source={learning}
               />
             ),
