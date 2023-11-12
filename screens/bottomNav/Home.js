@@ -4,7 +4,7 @@ import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpa
 import { useFonts, Inter_900Black} from '@expo-google-fonts/inter';
 
 
-import useNetwork from '../data/network'
+import useNetwork from '../../data/network'
 
 export default function Home({ navigation }) {
 

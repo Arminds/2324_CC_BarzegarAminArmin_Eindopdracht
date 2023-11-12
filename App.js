@@ -1,8 +1,8 @@
-import Home from './screens/Home';
-import Learning from './screens/Learning';
-import Battles from './screens/Battles';
-import Profile from './screens/Profile';
-import Posting from './screens/Posting';
+import Home from './screens/bottomNav/Home';
+import Learning from './screens/bottomNav/Learning';
+import Battles from './screens/bottomNav/Battles';
+import Profile from './screens/bottomNav/Profile';
+import Posting from './screens/bottomNav/Posting';
 
 import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,17 +11,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
   
-const home = require('../KnittingApp/assets/Home.png');
-const learning = require('../KnittingApp/assets/Learning.png');
-const profile = require('../KnittingApp/assets/Profile.png');
-const post = require('../KnittingApp/assets/Post.png');
-const battles = require('../KnittingApp/assets/Battles.png');
+const home = require('./assets/Home.png');
+const learning = require('./assets/Learning.png');
+const profile = require('./assets/Profile.png');
+const post = require('./assets/Post.png');
+const battles = require('./assets/Battles.png');
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        tabBarOptions={{
+        screenOptions={{
           showLabel: true,
           style: {
             position: 'absolute',

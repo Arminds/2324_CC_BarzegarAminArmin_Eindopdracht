@@ -24,7 +24,7 @@ export default function Profile({navigation}) {
         />
       </View>
       <View style={styles.gridRank}>
-        <Text style={styles.body}>843</Text>
+        <Text style={styles.body}>49</Text>
       </View>
      </View>
 
@@ -34,7 +34,7 @@ export default function Profile({navigation}) {
         <View>
           <View style={styles.gridItem}>
             <Text style={styles.body}>32</Text>
-            <Text style={styles.body}>Blogs</Text>
+            <Text style={styles.body2}>Blogs</Text>
           </View>
         </View>
 
@@ -42,8 +42,8 @@ export default function Profile({navigation}) {
 
         <View>
           <View style={styles.gridItem}>
-            <Text style={styles.body}>32</Text>
-            <Text style={styles.body}>Followers</Text>
+            <Text style={styles.body}>46</Text>
+            <Text style={styles.body2}>Followers</Text>
           </View>
         </View>
 
@@ -51,8 +51,8 @@ export default function Profile({navigation}) {
 
         <View>
           <View style={styles.gridItem}>
-            <Text style={styles.body}>32</Text>
-            <Text style={styles.body}>Following</Text>
+            <Text style={styles.body}>126</Text>
+            <Text style={styles.body2}>Following</Text>
           </View>
         </View>
 
@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
   body: { //body font
     color: '#FFF',
     fontSize: 16,
+    //fontFamily: 'Inter_300Light', // Doesnt work???????????????????
+    textAlign:'center' // centers the necessary elements
+  },
+  body2: { //body font
+    color: 'grey',
+    fontSize: 12,
     //fontFamily: 'Inter_300Light', // Doesnt work???????????????????
     textAlign:'center' // centers the necessary elements
   },

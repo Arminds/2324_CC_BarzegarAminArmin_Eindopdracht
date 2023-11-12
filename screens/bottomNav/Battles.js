@@ -1,5 +1,5 @@
 
-import Settings from './Settings';
+import Settings from '../Settings';
 import Profile from './Profile';
 
 import { StatusBar } from 'expo-status-bar';

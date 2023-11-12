@@ -1,5 +1,5 @@
 
-import Settings from './Settings';
+import Settings from '../Settings';
 import Profile from './Profile';
 
 import { StatusBar } from 'expo-status-bar';
@@ -8,10 +8,10 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 
 const Stack = createNativeStackNavigator();
 
-export default function Posting({navigation}) {
+export default function Learning({navigation}) {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Settings" component={Settings} options={{title: 'Posting'}} />
+      <Stack.Screen name="Settings" component={Settings} options={{title: 'Learning'}} />
       <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator> 
   );
