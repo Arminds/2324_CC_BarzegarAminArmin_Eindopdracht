@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   header: { //nameUser
     color: '#FFF',
-    fontSize: '24px',
+    fontSize: 24,
     fontFamily: 'Inter_900Black',
     textAlign:'center' // centers the necessary elements
   },
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
   },
   body: { //body font
     color: '#FFF',
-    fontSize: '16px',
-    fontFamily: 'Inter_300Light', // Doesnt work???????????????????
+    fontSize: 16,
+    //fontFamily: 'Inter_300Light', // Doesnt work???????????????????
     textAlign:'center' // centers the necessary elements
   },
   rank: {

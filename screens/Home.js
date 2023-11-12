@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
-import { useFonts, Inter_900Black, Inter_300Light } from '@expo-google-fonts/inter';
+import { useFonts, Inter_900Black} from '@expo-google-fonts/inter';
 
 
 import useNetwork from '../data/network'
