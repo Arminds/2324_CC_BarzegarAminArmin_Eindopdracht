@@ -11,27 +11,27 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
   
-const home = require('./assets/Icons/Home.png');
-const learning = require('./assets/Icons/Learning.png');
-const profile = require('./assets/Icons/Profile.png');
-const post = require('./assets/Icons/Post.png');
-const battles = require('./assets/Icons/Battles.png');
+const homeIcon = require('./assets/Icons/Home.png');
+const learningIcon = require('./assets/Icons/Learning.png');
+const profileIcon = require('./assets/Icons/Profile.png');
+const postIcon = require('./assets/Icons/Post.png');
+const battlesIcon = require('./assets/Icons/Battles.png');
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        barStyle={{
-          showLabel: true,
-          style: {
-            position: 'absolute',
-            bottom: 25,
-            left: 20,
-            right: 20,
-            elevation: 0,
+      <Tab.Navigator    
+        screenOptions={{
+          showLabel: false,
+          tabBarStyle: {
+            position: 'absolute', 
+            padding: 28,
+            bottom: 30,
+            left: 24,
+            right: 24,
             backgroundColor: 'blue',
-            borderRadius: 15,
-            height: 90,
+            borderRadius: 30,
+            height: 60,
           }
         }}
       >
@@ -46,8 +46,8 @@ export default function App() {
             },
             tabBarIcon: () => (
               <Image
-                style={{ width: 20, height: 20}}
-                source={home}
+                style={{ width: 21, height: 20}}
+                source={homeIcon}
               />
             ),
           }} />
@@ -59,8 +59,8 @@ export default function App() {
             tabBarLabel: 'Learning',
             tabBarIcon: () => (
               <Image
-                style={{ width: 18, height: 22}}
-                source={learning}
+                style={{ width: 18, height: 24}}
+                source={learningIcon}
               />
             ),
           }}
@@ -72,7 +72,7 @@ export default function App() {
             tabBarIcon: () => (
               <Image
                 style={{ width: 50, height: 50}}
-                source={post}
+                source={postIcon}
               />
             ),
           }}
@@ -83,8 +83,8 @@ export default function App() {
             tabBarLabel: 'Battles',
             tabBarIcon: () => (
               <Image
-                style={{ width: 20, height: 20}}
-                source={battles}
+                style={{ width: 20, height: 23}}
+                source={battlesIcon}
               />
             ),
           }}
@@ -95,8 +95,8 @@ export default function App() {
             tabBarLabel: 'Profile',
             tabBarIcon: () => (
               <Image
-                style={{ width: 20, height: 20}}
-                source={profile}
+                style={{ width: 20, height: 22}}
+                source={profileIcon}
               />
             ),
           }}
