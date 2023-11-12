@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
     height: 60,
     margin: 0,
     marginBottom: 20,
-    borderRadius: 100
+    borderRadius: 100,
+    backgroundColor: 'grey',
   },
   header: { //nameUser
     color: '#FFF',

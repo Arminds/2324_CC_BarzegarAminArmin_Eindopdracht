@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={{
+        barStyle={{
           showLabel: true,
           style: {
             position: 'absolute',

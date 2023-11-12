@@ -5,8 +5,9 @@ import { internalMutate } from 'swr/_internal';
 
 const Stack = createNativeStackNavigator();
 
-const home = require('../../assets/aiImages/4.jpeg');
-const battles = require('../../assets/Icons/Battles.png');
+const recommendationImage = require('../../assets/aiImages/4.jpeg');
+
+const trophy = require('../../assets/restIcon/trophy.png');
 
 export default function Learning({navigation}) {
   return (
@@ -14,7 +15,7 @@ export default function Learning({navigation}) {
       <View style={styles.recommendation}>
         <Image
           style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
-          source={home}
+          source={recommendationImage}
         />
         <View style={styles.imageTextContainer}>
         <Text style={styles.body}>
@@ -29,8 +30,8 @@ export default function Learning({navigation}) {
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
           <Image
-            style={{ width: 20, height: 24, justifyContent: 'center', alignItems: 'center'}}
-            source={battles}
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
           />
         </View>
         <View>
@@ -41,7 +42,36 @@ export default function Learning({navigation}) {
             Read the blog →
           </Text>
         </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
       </View>
+      
+
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
+          />
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            Upper your level
+          </Text>
+          <Text style={styles.body2}>
+            Read the blog →
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+
       
     </View>
   );
@@ -57,7 +87,7 @@ const styles = StyleSheet.create({
     paddingTop: 72,
   },
   recommendation: {
-    backgroundColor: 'red',
+    backgroundColor: 'grey',
     width: '100%',
     height: '35%',
     borderRadius: 24,
@@ -73,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     paddingLeft: 6,
     paddingRight: 6,
-    fontWeight: '900',
+    fontWeight: '800',
   },
   body: {
     color: 'white',
@@ -85,27 +115,42 @@ const styles = StyleSheet.create({
   },
   header2: {
     color: 'black',
-    fontWeight: '900',
+    fontWeight: '800',
+    left: 12
   },
   body2:{
     color: 'black',
+    fontWeight: '400',
+    left: 12
   },
   exercise: {
     backgroundColor: 'white',
     margin: 20,
     width: '100%',
-    padding: 12,
+    padding: 8,
     paddingLeft: 0,
     borderRadius: 24,
     flexDirection: 'row', // horizontal grid
     alignItems:'center',
+    marginBottom: 0,
   },
   techniqueIcon: {
-    width: 48,
-    height: 48,
     backgroundColor: 'blue',
     borderRadius: 16,
-    marginHorizontal: 16,
+    marginHorizontal: 10,
+  },
+  goTo: {
+    backgroundColor: 'blue',
+    borderRadius: 16,
+    position: 'absolute',
+    right: 10
+  },
+  goText: {
+    paddingTop: 8,
+    paddingBottom: 8,
+    padding: 4,
+    color: 'white',
+    fontWeight: '900',
   }
   
 });
