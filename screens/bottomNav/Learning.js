@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { internalMutate } from 'swr/_internal';
-import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
 
 
 const Stack = createNativeStackNavigator();
@@ -12,14 +11,6 @@ const recommendationImage = require('../../assets/aiImages/4.jpeg');
 const trophy = require('../../assets/restIcon/trophy.png');
 
 export default function Learning({navigation}) {
-
-  let [fontsLoaded, fontError] = useFonts({
-    Inter_900Black,
-    Inter_700Bold,
-    Inter_400Regular,
-    Inter_300Light,
-  });
-
   return (
     <View style={styles.container}>
       <View style={styles.recommendation}>

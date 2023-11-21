@@ -10,6 +10,8 @@ import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
+
 
 const Tab = createBottomTabNavigator();
   
@@ -20,6 +22,15 @@ const postIcon = require('./assets/Icons/Post.png');
 const battlesIcon = require('./assets/Icons/Battles.png');
 
 export default function App() {
+
+  let [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+    Inter_700Bold,
+    Inter_400Regular,
+    Inter_300Light,
+  });
+
+  
   return (
     <NavigationContainer>
       <Tab.Navigator    

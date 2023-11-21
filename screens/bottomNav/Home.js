@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
-import { useFonts, Inter_900Black, Inter_300Light} from '@expo-google-fonts/inter';
 
 
 import useNetwork from '../../data/network'
@@ -13,18 +12,6 @@ export default function Home({ navigation }) {
 
   const {network, isLoading, isError} = useNetwork()
   console.log(network);
-
-  let [fontsLoaded, fontError] = useFonts({
-    Inter_900Black,
-    Inter_300Light
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
-  if (isLoading) return <Text>Loading...</Text>
-  if (isError) return <Text>Error</Text>
 
   return (
     <View style={styles.container}>
