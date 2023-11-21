@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'top',
     padding: 24,
-    paddingTop: 72,
+    paddingTop: 12,
   },
 })

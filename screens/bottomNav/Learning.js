@@ -73,6 +73,28 @@ export default function Learning({navigation}) {
         </View>
       </View>
 
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
+          />
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            Next Level
+          </Text>
+          <Text style={styles.body2}>
+            Read the blog →
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+
       
     </View>
   );
@@ -85,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'top',
     padding: 24,
-    paddingTop: 72,
+    paddingTop: 12,
   },
   recommendation: {
     backgroundColor: 'grey',
@@ -156,5 +178,4 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'Inter_700Bold',
   }
-  
 });

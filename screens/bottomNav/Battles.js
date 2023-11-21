@@ -7,10 +7,13 @@ const Stack = createNativeStackNavigator();
 const others = require('../../assets/aiImages/3.jpeg');
 const watch = require('../../assets/aiImages/1.jpeg');
 
+const star = require('../../assets/star.png')
+
+
 
 export default function Battles({navigation}) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.bigBox}>
         <Image
           style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
@@ -44,18 +47,48 @@ export default function Battles({navigation}) {
         </Text>
         </View>
       </View>
-    </View>
+
+
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20,}}
+            source={star}
+          />
+          <Text style={styles.header3}>
+            286
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            My rank
+          </Text>
+          <Text style={styles.body2}>
+            Your profile rank is based on the
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+    
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     flex: 1,
     backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'top',
     padding: 24,
-    paddingTop: 72,
+    paddingTop: 12,
+  },
+  container: {
+    backgroundColor: '#000000',
   },
   bigBox: {
     backgroundColor: 'grey',
@@ -85,4 +118,56 @@ const styles = StyleSheet.create({
     marginBottom: 6,
     fontFamily: 'Inter_400Regular',
   },
+
+
+  header2: {
+    color: 'black',
+    left: 12,
+    fontFamily: 'Inter_700Bold',
+  },
+  body2:{
+    color: 'black',
+    fontWeight: '400',
+    left: 12,
+    fontFamily: 'Inter_400Regular',
+
+  },
+  exercise: {
+    backgroundColor: 'white',
+    margin: 20,
+    width: '100%',
+    padding: 8,
+    paddingLeft: 0,
+    borderRadius: 24,
+    flexDirection: 'row', // horizontal grid
+    alignItems:'center',
+    marginBottom: 0,
+  },
+  techniqueIcon: {
+    backgroundColor: 'blue',
+    borderRadius: 16,
+    marginHorizontal: 10,
+    width: 48,
+    height: 48,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  goTo: {
+    backgroundColor: 'blue',
+    borderRadius: 16,
+    position: 'absolute',
+    right: 10
+  },
+  goText: {
+    paddingTop: 8,
+    paddingBottom: 8,
+    padding: 4,
+    color: 'white',
+    fontFamily: 'Inter_700Bold',
+  },
+
+  header3:{
+    color: 'white',
+    fontFamily: 'Inter_700Bold',
+  }
 })
