@@ -1,3 +1,5 @@
+// TODO: 
+
 import Home from './screens/bottomNav/Home';
 import Learning from './screens/bottomNav/Learning';
 import Battles from './screens/bottomNav/Battles';
@@ -21,17 +23,24 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator    
+        tabBarOptions={{
+          showLabel:false,
+        }}
         screenOptions={{
-          showLabel: false,
           tabBarStyle: {
             position: 'absolute', 
-            padding: 28,
-            bottom: 30,
+            padding: 29,
+            paddingLeft: 12,
+            paddingRight: 12,
+            justifyContent: 'center',
+            alignItems: 'center',
             left: 24,
             right: 24,
+            bottom: 24,
             backgroundColor: 'blue',
             borderRadius: 30,
             height: 60,
+            borderTopWidth: 0
           }
         }}
       >
@@ -46,7 +55,7 @@ export default function App() {
             },
             tabBarIcon: () => (
               <Image
-                style={{ width: 21, height: 20}}
+                style={{ width: 22, height: 22}}
                 source={homeIcon}
               />
             ),
@@ -55,8 +64,11 @@ export default function App() {
           name="Learning"  
           component={Learning} 
           options= {{
-            headerShown: false,
             tabBarLabel: 'Learning',
+            headerStyle: {
+              backgroundColor: '#000000',
+            },
+            headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image
                 style={{ width: 18, height: 24}}
@@ -67,8 +79,11 @@ export default function App() {
         />
         <Tab.Screen name="Posting" component={Posting} 
           options= {{
-            headerShown: false,
             tabBarLabel: 'Posting',
+            headerStyle: {
+              backgroundColor: '#000000',
+            },
+            headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image
                 style={{ width: 50, height: 50}}
@@ -79,8 +94,11 @@ export default function App() {
         />
         <Tab.Screen name="Battles" component={Battles} 
           options= {{
-            headerShown: false,
             tabBarLabel: 'Battles',
+            headerStyle: {
+              backgroundColor: '#000000',
+            },
+            headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image
                 style={{ width: 20, height: 23}}
@@ -91,8 +109,11 @@ export default function App() {
         />
         <Tab.Screen name="Profile" component={Profile} 
           options= {{
-            headerShown: false,
             tabBarLabel: 'Profile',
+            headerStyle: {
+              backgroundColor: '#000000',
+            },
+            headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image
                 style={{ width: 20, height: 22}}

@@ -1,12 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
+
 
 const Stack = createNativeStackNavigator();
 const others = require('../../assets/aiImages/3.jpeg');
 const watch = require('../../assets/aiImages/1.jpeg');
 
+
 export default function Battles({navigation}) {
+
+  let [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+    Inter_700Bold,
+    Inter_400Regular,
+    Inter_300Light,
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.bigBox}>
@@ -72,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     paddingLeft: 6,
     paddingRight: 6,
-    fontWeight: '800',
+    fontFamily: 'Inter_700Bold',
   },
   body: {
     color: 'white',
@@ -81,5 +92,6 @@ const styles = StyleSheet.create({
     paddingLeft: 6,
     paddingRight: 6,
     marginBottom: 6,
+    fontFamily: 'Inter_400Regular',
   },
 })

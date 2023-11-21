@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { internalMutate } from 'swr/_internal';
+import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +12,14 @@ const recommendationImage = require('../../assets/aiImages/4.jpeg');
 const trophy = require('../../assets/restIcon/trophy.png');
 
 export default function Learning({navigation}) {
+
+  let [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+    Inter_700Bold,
+    Inter_400Regular,
+    Inter_300Light,
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.recommendation}>
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     paddingLeft: 6,
     paddingRight: 6,
-    fontWeight: '800',
+    fontFamily: 'Inter_700Bold',
   },
   body: {
     color: 'white',
@@ -112,16 +122,19 @@ const styles = StyleSheet.create({
     paddingLeft: 6,
     paddingRight: 6,
     marginBottom: 6,
+    fontFamily: 'Inter_400Regular',
   },
   header2: {
     color: 'black',
-    fontWeight: '800',
-    left: 12
+    left: 12,
+    fontFamily: 'Inter_700Bold',
   },
   body2:{
     color: 'black',
     fontWeight: '400',
-    left: 12
+    left: 12,
+    fontFamily: 'Inter_400Regular',
+
   },
   exercise: {
     backgroundColor: 'white',
@@ -150,7 +163,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     padding: 4,
     color: 'white',
-    fontWeight: '900',
+    fontFamily: 'Inter_700Bold',
   }
   
 });

@@ -1,10 +1,20 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
+import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
+
 
 
 
 export default function Profile({navigation}) {
+
+  let [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+    Inter_700Bold,
+    Inter_400Regular,
+    Inter_300Light,
+  });
+
 
   const axearminimage = require('../../assets/axearmin.png'); //constante voor foto
   const starIcon = require('../../assets/star.png'); //constante voor foto
@@ -83,7 +93,7 @@ const styles = StyleSheet.create({
   header: { //nameUser
     color: '#FFF',
     fontSize: 24,
-    fontFamily: 'Inter_900Black',
+    fontFamily: 'Inter_700Bold',
     textAlign:'center' // centers the necessary elements
   },
 
@@ -95,13 +105,13 @@ const styles = StyleSheet.create({
   body: { //body font
     color: '#FFF',
     fontSize: 16,
-    //fontFamily: 'Inter_300Light', // Doesnt work???????????????????
+    fontFamily: 'Inter_400Regular', // Doesnt work???????????????????
     textAlign:'center' // centers the necessary elements
   },
   body2: { //body font
     color: 'grey',
     fontSize: 12,
-    //fontFamily: 'Inter_300Light', // Doesnt work???????????????????
+    fontFamily: 'Inter_400Regular', // Doesnt work???????????????????
     textAlign:'center' // centers the necessary elements
   },
   rank: {
