@@ -7,7 +7,9 @@ const Stack = createNativeStackNavigator();
 export default function Posting({navigation}) {
   return (
     <View style={styles.container}>
-
+      <Text style={styles.text}>
+        hey
+      </Text>
     </View>
   );
 }
@@ -21,4 +23,7 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingTop: 12,
   },
+  text: {
+    color: 'red',
+  }
 })

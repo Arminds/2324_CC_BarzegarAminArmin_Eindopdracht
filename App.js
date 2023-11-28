@@ -1,6 +1,6 @@
 // TODO: 
 
-import Home from './screens/bottomNav/Home';
+import HomeNavigator from './screens/bottomNav/HomeNavigator';
 import Learning from './screens/bottomNav/Learning';
 import Battles from './screens/bottomNav/Battles';
 import Profile from './screens/bottomNav/Profile';
@@ -55,11 +55,12 @@ export default function App() {
           }
         }}
       >
-        <Tab.Screen name="Home" component={Home} options={{ 
+        <Tab.Screen name="HomeNavigator" component={HomeNavigator} options={{ 
             title: 'Home',
             headerStyle: {
               backgroundColor: '#000000',
             },
+            headerShown: false,
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',

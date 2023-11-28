@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
 
-export default function Exercise({navigation}) {
+export default function Excercise({navigation}) {
   return (
       <View style={styles.container}>
         <Text>Settings</Text>
