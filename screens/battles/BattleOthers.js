@@ -1,18 +1,27 @@
-
-import Settings from '../Settings';
-import Profile from './Profile';
-
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
-const Stack = createNativeStackNavigator();
 
 export default function BattleOthers({navigation}) {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Settings" component={Settings} options={{title: 'BattleOthers'}} />
-      <Stack.Screen name="Profile" component={Profile} />
-    </Stack.Navigator> 
+      <View style={styles.container}>
+        <Text style={styles.text}>BattleOthers</Text>
+        <StatusBar style="auto"/>
+      </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+    alignItems: 'center',
+    justifyContent: 'top',
+    padding: 24,
+    paddingTop: 12,
+  },
+  text: {
+    color: 'white',
+  }
+});

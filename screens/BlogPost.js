@@ -6,7 +6,7 @@ import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpa
 export default function BlogPost({navigation}) {
   return (
       <View style={styles.container}>
-        <Text>BlogPost</Text>
+        <Text style={styles.text}>How to knit a pumpkin!</Text>
         <StatusBar style="auto"/>
       </View>
   );
@@ -21,4 +21,7 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingTop: 12,
   },
+  text: {
+    color: 'white',
+  }
 });

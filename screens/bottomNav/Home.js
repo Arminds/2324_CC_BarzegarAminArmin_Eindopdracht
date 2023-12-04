@@ -12,6 +12,12 @@ export default function Home({ navigation }) {
   const axearminimage = require('../../assets/axearmin.png'); //constante voor foto
   const starsvg = require('../../assets/star.png'); //constante voor foto
 
+  const likeIcon = require('../../assets/Like.png');
+  const commentIcon = require('../../assets/Comment.png');
+  const shareIcon = require('../../assets/Share.png');
+  
+
+
   const {network, isLoading, isError} = useNetwork()
   console.log(network);
 
@@ -26,6 +32,29 @@ export default function Home({ navigation }) {
           </Text>
         </View>
       </TouchableOpacity>
+
+      <View style={styles.interactives}>
+        <Image
+          style={{width:20, height:19,
+            marginHorizontal: 0,
+          }}
+          source={likeIcon}
+        />
+        <Image
+          style={{width:20, height:20,
+            marginHorizontal: 12,}}
+          source={commentIcon}
+        />
+        <View style={styles.divider}>
+
+        </View>
+        <Image
+          style={{width:18, height:19,
+            marginHorizontal: 0,
+            marginLeft:8}}
+          source={shareIcon}
+        />
+      </View>
     </View>
   );
 }
@@ -46,12 +75,29 @@ const styles = StyleSheet.create({
     paddingRight: 24,
     borderRadius: 24,
     position: 'absolute',
-    right: 0,
-    top: 600
-
+    right: 12,
+    top: 600,
   },
   readTheBlog: {
     color: 'white',
+  },
+  interactives:{
+    backgroundColor: 'black',
+    padding: 12,
+    paddingLeft: 24,
+    paddingRight: 24,
+    borderRadius: 24,
+    position: 'absolute',
+    right: 24,
+    top: 610,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  divider:{
+    backgroundColor: '#333',
+    width: 1,
+    height: 20,
+    marginHorizontal: 4,
   }
 });
 

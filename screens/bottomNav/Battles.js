@@ -14,6 +14,9 @@ const star = require('../../assets/star.png')
 export default function Battles({navigation}) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <TouchableOpacity style={styles.bugfix2} onPress={() => {
+        navigation.navigate('BattleOthers')
+      }}>
       <View style={styles.bigBox}>
         <Image
           style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
@@ -28,11 +31,14 @@ export default function Battles({navigation}) {
         </Text>
         </View>
       </View>
+      </TouchableOpacity>
 
 
         <Text style={{color: 'grey', margin: 20}}>OR</Text>
 
-
+      <TouchableOpacity style={styles.bugfix2} onPress={() => {
+        navigation.navigate('WatchOthers')
+      }}>
       <View style={styles.bigBox}>
         <Image
           style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
@@ -47,8 +53,11 @@ export default function Battles({navigation}) {
         </Text>
         </View>
       </View>
+      </TouchableOpacity>
 
-
+      <TouchableOpacity style={styles.bugfix} onPress={() => {
+        navigation.navigate('MyRank')
+      }}>
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
           <Image
@@ -73,6 +82,7 @@ export default function Battles({navigation}) {
           </Text>
         </View>
       </View>
+      </TouchableOpacity>
     </ScrollView>
     
   );
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
   bigBox: {
     backgroundColor: 'grey',
     width: '100%',
-    height: '35%',
+    height: 240,
     borderRadius: 24,
   },
   imageTextContainer: {
@@ -134,14 +144,13 @@ const styles = StyleSheet.create({
   },
   exercise: {
     backgroundColor: 'white',
-    margin: 20,
+
     width: '100%',
     padding: 8,
     paddingLeft: 0,
     borderRadius: 24,
     flexDirection: 'row', // horizontal grid
     alignItems:'center',
-    marginBottom: 0,
   },
   techniqueIcon: {
     backgroundColor: 'blue',
@@ -169,5 +178,15 @@ const styles = StyleSheet.create({
   header3:{
     color: 'white',
     fontFamily: 'Inter_700Bold',
-  }
+  },
+
+  bugfix: {
+    width: '100%',
+    alignItems:'center',
+    marginTop: 24,
+  },
+
+  bugfix2: {
+    width: '100%',
+  },
 })

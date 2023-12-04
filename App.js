@@ -2,7 +2,7 @@
 
 import HomeNavigator from './screens/bottomNav/HomeNavigator';
 import LearningNavigator from './screens/bottomNav/LearningNavigator';
-import Battles from './screens/bottomNav/Battles';
+import BattlesNavigator from './screens/bottomNav/BattlesNavigator';
 import Profile from './screens/bottomNav/Profile';
 import Posting from './screens/bottomNav/Posting';
 
@@ -106,12 +106,15 @@ export default function App() {
             ),
           }}
         />
-        <Tab.Screen name="Battles" component={Battles} 
+        <Tab.Screen 
+          name="BattlesNavigator" 
+          component={BattlesNavigator} 
           options= {{
             tabBarLabel: 'Battles',
             headerStyle: {
               backgroundColor: '#000000',
             },
+            headerShown: false,
             headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image
