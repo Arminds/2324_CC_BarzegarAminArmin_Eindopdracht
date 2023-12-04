@@ -1,7 +1,7 @@
 // TODO: 
 
 import HomeNavigator from './screens/bottomNav/HomeNavigator';
-import Learning from './screens/bottomNav/Learning';
+import LearningNavigator from './screens/bottomNav/LearningNavigator';
 import Battles from './screens/bottomNav/Battles';
 import Profile from './screens/bottomNav/Profile';
 import Posting from './screens/bottomNav/Posting';
@@ -34,10 +34,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator    
-        tabBarOptions={{
-          showLabel:false,
-        }}
         screenOptions={{
+          showLabel:false,
           tabBarStyle: {
             position: 'absolute', 
             padding: 29,
@@ -55,7 +53,10 @@ export default function App() {
           }
         }}
       >
-        <Tab.Screen name="HomeNavigator" component={HomeNavigator} options={{ 
+        <Tab.Screen 
+          name="HomeNavigator" 
+          component={HomeNavigator} 
+          options={{ 
             title: 'Home',
             headerStyle: {
               backgroundColor: '#000000',
@@ -73,13 +74,14 @@ export default function App() {
             ),
           }} />
         <Tab.Screen 
-          name="Learning"  
-          component={Learning} 
+          name="LearningNavigator"  
+          component={LearningNavigator} 
           options= {{
             tabBarLabel: 'Learning',
             headerStyle: {
               backgroundColor: '#000000',
             },
+            headerShown: false,
             headerTintColor: '#fff',
             tabBarIcon: () => (
               <Image

@@ -13,6 +13,7 @@ const trophy = require('../../assets/restIcon/trophy.png');
 export default function Learning({navigation}) {
   return (
     <View style={styles.container}>
+
       <View style={styles.recommendation}>
         <Image
           style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
@@ -28,6 +29,10 @@ export default function Learning({navigation}) {
         </View>
       </View>
 
+
+      <TouchableOpacity style={styles.exercise2} onPress={() => {
+        navigation.navigate('Exercise')
+      }}>
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
           <Image
@@ -49,6 +54,7 @@ export default function Learning({navigation}) {
           </Text>
         </View>
       </View>
+      </TouchableOpacity>
       
 
       <View style={styles.exercise}>
@@ -160,6 +166,13 @@ const styles = StyleSheet.create({
     alignItems:'center',
     marginBottom: 0,
   },
+
+  exercise2: {
+    width: '100%',
+    alignItems:'center',
+  },
+
+
   techniqueIcon: {
     backgroundColor: 'blue',
     borderRadius: 16,
@@ -177,5 +190,13 @@ const styles = StyleSheet.create({
     padding: 4,
     color: 'white',
     fontFamily: 'Inter_700Bold',
+  },
+
+
+  //test
+  tekstje:{
+    color:'white',
+    backgroundColor: 'blue',
+    padding: 12,
   }
 });

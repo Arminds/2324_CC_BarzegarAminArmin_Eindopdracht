@@ -18,15 +18,14 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => {
-        navigation.navigate('Exercise')
+        navigation.navigate('BlogPost')
       }}>
-        <Text style={styles.text}>
-          go next
-        </Text>
+        <View style={styles.readTheBlogBox}>
+          <Text style={styles.readTheBlog}>
+            Read The Blog →
+          </Text>
+        </View>
       </TouchableOpacity>
-      <Text style={styles.text}>
-        Go next 22
-      </Text>
     </View>
   );
 }
@@ -34,17 +33,25 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#444333',
     alignItems: 'center',
     justifyContent: 'top',
     padding: 24,
     paddingTop: 12,
   },
-  text: {
-    color: 'white',
+  readTheBlogBox: {
+    backgroundColor: 'black',
     padding: 12,
-    margin: 12,
-    backgroundColor: 'blue',
+    paddingLeft: 24,
+    paddingRight: 24,
+    borderRadius: 24,
+    position: 'absolute',
+    right: 0,
+    top: 600
+
+  },
+  readTheBlog: {
+    color: 'white',
   }
 });
 

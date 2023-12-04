@@ -5,9 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Home from './Home';
-
-import BlogPost from '../BlogPost';
+import Learning from './Learning';
+import Exercise from '../Exercise';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +15,7 @@ export default function HomeNavigator({ navigation }) {
 
   return(
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} 
+        <Stack.Screen name="Learning" component={Learning} 
           options= {{
             headerStyle: {
               backgroundColor: '#000000',
@@ -24,7 +23,7 @@ export default function HomeNavigator({ navigation }) {
             headerTintColor: '#fff',
           }}>
         </Stack.Screen>
-        <Stack.Screen name="BlogPost" component={BlogPost} options= {{
+        <Stack.Screen name="Exercise" component={Exercise} options= {{
             headerStyle: {
               backgroundColor: '#000000',
             },
