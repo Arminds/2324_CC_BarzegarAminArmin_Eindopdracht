@@ -13,6 +13,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
 
 
+
+
 const Tab = createBottomTabNavigator();
   
 const homeIcon = require('./assets/Icons/Home.png');
@@ -22,6 +24,8 @@ const postIcon = require('./assets/Icons/Post.png');
 const battlesIcon = require('./assets/Icons/Battles.png');
 
 export default function App() {
+
+  
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_900Black,
@@ -93,6 +97,7 @@ export default function App() {
         />
         <Tab.Screen name="Posting" component={Posting} 
           options= {{
+            headerShown: false,
             tabBarLabel: 'Posting',
             headerStyle: {
               backgroundColor: '#000000',
