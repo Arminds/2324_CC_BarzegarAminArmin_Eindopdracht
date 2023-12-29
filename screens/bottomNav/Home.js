@@ -5,6 +5,7 @@ import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpa
 import LikeIconSvg from '../../assets/Like.svg'
 
 import useNetwork from '../../data/network'
+import Post from '../../components/Post.js'
 
 
 export default function Home({ navigation }) {
@@ -31,41 +32,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => {
-        navigation.navigate('BlogPost')
-      }}>
-        <View style={styles.readTheBlogBox}>
-          <Text style={styles.readTheBlog}>
-            Read The Blog →
-          </Text>
-        </View>
-      </TouchableOpacity>
-
-      <View style={styles.interactives}>
-
-        <TouchableOpacity onPress={handleLikePress}>
-          <LikeIconSvg
-            width={20}
-            height={19}
-            fill={likeColor} // Set the fill color dynamically based on state
-          />
-        </TouchableOpacity>
-
-        <Image
-          style={{width:20, height:20,
-            marginHorizontal: 12,}}
-          source={commentIcon}
-        />
-        <View style={styles.divider}>
-
-        </View>
-        <Image
-          style={{width:18, height:19,
-            marginHorizontal: 0,
-            marginLeft:8}}
-          source={shareIcon}
-        />
-      </View>
+      <Post/>
     </View>
   );
 }
@@ -73,7 +40,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#444333',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'top',
     padding: 24,
@@ -112,3 +79,40 @@ const styles = StyleSheet.create({
   }
 });
 
+/*
+      <TouchableOpacity onPress={() => {
+        navigation.navigate('BlogPost')
+      }}>
+        <View style={styles.readTheBlogBox}>
+          <Text style={styles.readTheBlog}>
+            Read The Blog →
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+      <View style={styles.interactives}>
+
+        <TouchableOpacity onPress={handleLikePress}>
+          <LikeIconSvg
+            width={20}
+            height={19}
+            fill={likeColor} // Set the fill color dynamically based on state
+          />
+        </TouchableOpacity>
+
+        <Image
+          style={{width:20, height:20,
+            marginHorizontal: 12,}}
+          source={commentIcon}
+        />
+        <View style={styles.divider}>
+
+        </View>
+        <Image
+          style={{width:18, height:19,
+            marginHorizontal: 0,
+            marginLeft:8}}
+          source={shareIcon}
+        />
+      </View>
+*/
