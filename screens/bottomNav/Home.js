@@ -4,7 +4,7 @@ import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpa
 
 import LikeIconSvg from '../../assets/Like.svg'
 
-import useNetwork from '../../data/network'
+import useNetwork from '../../data/networkKnit'
 import Post from '../../components/Post.js'
 
 

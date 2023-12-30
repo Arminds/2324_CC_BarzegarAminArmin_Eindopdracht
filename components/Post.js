@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import useNetwork from '../data/networkKnit'; // Update the path based on your project structure
+
 
 const likeIcon = require('../assets/Like.png');
 const commentIcon = require('../assets/Comment.png');
