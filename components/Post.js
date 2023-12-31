@@ -8,11 +8,13 @@ const shareIcon = require('../assets/Share.png');
 
 const Post = () => {
   const {data, isLoading, isError} = useNetwork()
-  console.log("API DATA", data);
+  //console.log("API DATA", data);
 
   if (isError) {
     return <Text>Error loading posts</Text>;
   }
+
+  const BASE_URL = 'https://armin.vaw.be/';
 
   const joinedData = data?.BlogPosts.map((blogPost) => {
     const user = data.Users.find((user) => user.UserID === blogPost.UserID);
@@ -20,7 +22,7 @@ const Post = () => {
       ...blogPost,
       Username: user?.Username || 'Unknown',
       Email: user?.Email || 'Unknown',
-      ProfileImage: user?.ProfileImage || 'DefaultImageURL',
+      ProfileImage: user?.ProfileImage ? BASE_URL + user.ProfileImage : 'DefaultImageURL',
     };
   });
 
@@ -46,11 +48,11 @@ const Post = () => {
 const Card = ({ item }) => (
   <View style={styles.card}>
     <View style={styles.flexer}>
-      <Image source={item.ProfileImage} style={styles.avatar} />
+      <Image source={{ uri: item.ProfileImage}} style={styles.avatar} />
       <Text style={styles.userName}>{item.Username}</Text>
     </View>
 
-    <Image source={item.Media} style={styles.postImage} />
+    <Image source={{ uri: 'https://armin.vaw.be/' + item.Media}} style={styles.postImage} />
 
     <View style={styles.flexer2}>
       <TouchableOpacity style={styles.blogButton} onPress={() => { navigation.navigate('BlogPost') }}>

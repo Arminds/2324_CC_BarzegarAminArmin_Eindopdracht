@@ -19,7 +19,7 @@ export default function Home({ navigation }) {
   };
 
   const {data, isLoading, isError} = useNetwork()
-  console.log(data);
+  //console.log(data);
 
   return (
     <View style={styles.container}>
