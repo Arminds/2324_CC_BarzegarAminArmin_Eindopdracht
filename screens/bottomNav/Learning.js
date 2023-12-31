@@ -3,105 +3,33 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { internalMutate } from 'swr/_internal';
 
-
-const Stack = createNativeStackNavigator();
+import useNetwork from '../../data/Knitting.js'
+import LearningCourses from '../../components/LearningCourses.js'
 
 const recommendationImage = require('../../assets/aiImages/4.jpeg');
 
-const trophy = require('../../assets/restIcon/trophy.png');
 
-export default function Learning({navigation}) {
+const Stack = createNativeStackNavigator();
+
+//const recommendationImage = require('../../assets/aiImages/4.jpeg');
+
+//const trophy = require('../../assets/restIcon/trophy.png');
+
+export default function Learning({ navigation }) {
+
+  const {network, isLoading, isError} = useNetwork()
+  //console.log(armin_expert);
+
   return (
     <View style={styles.container}>
-
       <View style={styles.recommendation}>
-        <Image
-          style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
-          source={recommendationImage}
-        />
-        <View style={styles.imageTextContainer}>
-        <Text style={styles.body}>
-          BEGINNERS GUIDE
-        </Text>
-        <Text style={styles.header}>
-          HOW TO KNIT →
-        </Text>
-        </View>
+      <Image style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute' }} source={recommendationImage} />
+      <View style={styles.imageTextContainer}>
+        <Text style={styles.body}>BEGINNERS GUIDE</Text>
+        <Text style={styles.header}>HOW TO KNIT →</Text>
       </View>
-
-
-      <TouchableOpacity style={styles.exercise2} onPress={() => {
-        navigation.navigate('Exercise')
-      }}>
-      <View style={styles.exercise}>
-        <View style={styles.techniqueIcon}>
-          <Image
-            style={{ width: 21, height: 20, margin: 16}}
-            source={trophy}
-          />
-        </View>
-        <View>
-          <Text style={styles.header2}>
-            Advanced Techniques
-          </Text>
-          <Text style={styles.body2}>
-            Read the blog →
-          </Text>
-        </View>
-        <View style={styles.goTo}>
-          <Text style={styles.goText}>
-            →
-          </Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-      
-
-      <View style={styles.exercise}>
-        <View style={styles.techniqueIcon}>
-          <Image
-            style={{ width: 21, height: 20, margin: 16}}
-            source={trophy}
-          />
-        </View>
-        <View>
-          <Text style={styles.header2}>
-            Upper your level
-          </Text>
-          <Text style={styles.body2}>
-            Read the blog →
-          </Text>
-        </View>
-        <View style={styles.goTo}>
-          <Text style={styles.goText}>
-            →
-          </Text>
-        </View>
-      </View>
-
-      <View style={styles.exercise}>
-        <View style={styles.techniqueIcon}>
-          <Image
-            style={{ width: 21, height: 20, margin: 16}}
-            source={trophy}
-          />
-        </View>
-        <View>
-          <Text style={styles.header2}>
-            Next Level
-          </Text>
-          <Text style={styles.body2}>
-            Read the blog →
-          </Text>
-        </View>
-        <View style={styles.goTo}>
-          <Text style={styles.goText}>
-            →
-          </Text>
-        </View>
-      </View>
-
-      
+    </View>
+      <LearningCourses/>
     </View>
   );
 }
@@ -200,3 +128,95 @@ const styles = StyleSheet.create({
     padding: 12,
   }
 });
+
+/*
+
+      <View style={styles.recommendation}>
+        <Image
+          style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute'}}
+          source={recommendationImage}
+        />
+        <View style={styles.imageTextContainer}>
+        <Text style={styles.body}>
+          BEGINNERS GUIDE
+        </Text>
+        <Text style={styles.header}>
+          HOW TO KNIT →
+        </Text>
+        </View>
+      </View>
+
+
+      <TouchableOpacity style={styles.exercise2} onPress={() => {
+        navigation.navigate('Exercise')
+      }}>
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
+          />
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            Advanced Techniques
+          </Text>
+          <Text style={styles.body2}>
+            Read the blog →
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+      </TouchableOpacity>
+      
+
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
+          />
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            Upper your level
+          </Text>
+          <Text style={styles.body2}>
+            Read the blog →
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.exercise}>
+        <View style={styles.techniqueIcon}>
+          <Image
+            style={{ width: 21, height: 20, margin: 16}}
+            source={trophy}
+          />
+        </View>
+        <View>
+          <Text style={styles.header2}>
+            Next Level
+          </Text>
+          <Text style={styles.body2}>
+            Read the blog →
+          </Text>
+        </View>
+        <View style={styles.goTo}>
+          <Text style={styles.goText}>
+            →
+          </Text>
+        </View>
+      </View>
+
+      
+*/

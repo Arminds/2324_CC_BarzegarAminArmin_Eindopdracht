@@ -1,34 +1,25 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
+import useNetwork from '../../data/Knitting.js'
+import Post from '../../components/Post.js'
 
 import LikeIconSvg from '../../assets/Like.svg'
 
-import useNetwork from '../../data/networkKnit'
-import Post from '../../components/Post.js'
 
 
 export default function Home({ navigation }) {
-  //dbData = ()=>{fetch('http://2a02:1810:c31:5800:69b5:3593:275a:d2fb/endpoint.php')} 
-
-  const likeIcon = require('../../assets/Like.png');
-  const commentIcon = require('../../assets/Comment.png');
-  const shareIcon = require('../../assets/Share.png');
-
+  
   const likeIconSvg = require('../../assets/Like.svg')
-
-  const [likeColor, setLikeColor] = useState('white'); // Initial color of LikeIconSvg
-
+  const [likeColor, setLikeColor] = useState('white');
   const handleLikePress = () => {
-    // Toggle the color when LikeIconSvg is pressed
     const newColor = likeColor === 'white' ? 'red' : 'white';
     setLikeColor(newColor);
-
     // You can perform additional actions here when the LikeIconSvg is pressed
   };
 
-  const {network, isLoading, isError} = useNetwork()
-  console.log(network);
+  const {data, isLoading, isError} = useNetwork()
+  console.log(data);
 
   return (
     <View style={styles.container}>

@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
-import useNetwork from '../data/Knitting';
+import KnittingData from '../data/Knitting';
 
 const likeIcon = require('../assets/Like.png');
 const commentIcon = require('../assets/Comment.png');
 const shareIcon = require('../assets/Share.png');
 
 const Post = () => {
-  const {data, isLoading, isError} = useNetwork()
-  console.log("API DATA", data);
+  console.log("KnittingData:", KnittingData);
 
-  if (isError) {
-    return <Text>Error loading posts</Text>;
-  }
-
-  const joinedData = data?.BlogPosts.map((blogPost) => {
-    const user = data.Users.find((user) => user.UserID === blogPost.UserID);
+  const joinedData = KnittingData.BlogPosts ? KnittingData.BlogPosts.map((BlogPost) => {
+    const user = KnittingData.Users.find((user) => user.UserID === BlogPost.UserID);
     return {
-      ...blogPost,
+      ...BlogPost,
       Username: user?.Username || 'Unknown',
       Email: user?.Email || 'Unknown',
       ProfileImage: user?.ProfileImage || 'DefaultImageURL',
     };
-  });
+  }) : [];
 
   const sortedData = joinedData?.sort((a, b) => b.PostID - a.PostID);
 
@@ -32,9 +27,9 @@ const Post = () => {
         <FlatList
           data={sortedData}
           renderItem={({ item }) => <Card item={item} />}
-          keyExtractor={(item) => item.PostID}
+          keyExtractor={(item) => item.PostID.toString()}
           style={styles.flatList}
-           showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
         />
       ) : (
         <Text>Loading...</Text>
@@ -43,14 +38,14 @@ const Post = () => {
   );
 };
 
-const Card = ({ item }) => (
+const Card = ({ item, navigation }) => (
   <View style={styles.card}>
     <View style={styles.flexer}>
-      <Image source={item.ProfileImage} style={styles.avatar} />
+      <Image source={{ uri: item.ProfileImage }} style={styles.avatar} />
       <Text style={styles.userName}>{item.Username}</Text>
     </View>
 
-    <Image source={item.Media} style={styles.postImage} />
+    <Image source={{ uri: item.Media }} style={styles.postImage} />
 
     <View style={styles.flexer2}>
       <TouchableOpacity style={styles.blogButton} onPress={() => { navigation.navigate('BlogPost') }}>
@@ -65,7 +60,7 @@ const Card = ({ item }) => (
         <TouchableOpacity>
           <Image style={{ width: 20, height: 20 }} source={commentIcon} />
         </TouchableOpacity>
-        
+
         <TouchableOpacity>
           <Image style={{ width: 18, height: 19 }} source={shareIcon} />
         </TouchableOpacity>
@@ -73,6 +68,7 @@ const Card = ({ item }) => (
     </View>
   </View>
 );
+
 
 const styles = StyleSheet.create({
   container: {

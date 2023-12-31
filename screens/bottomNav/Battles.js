@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import useNetwork from '../../data/Knitting';
 
 
 const Stack = createNativeStackNavigator();
@@ -9,9 +10,7 @@ const watch = require('../../assets/aiImages/1.jpeg');
 
 const star = require('../../assets/star.png')
 
-
-
-export default function Battles({navigation}) {
+export default function Battles({item, navigation}) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <TouchableOpacity style={styles.bugfix2} onPress={() => {

@@ -13,6 +13,7 @@ const Stack = createNativeStackNavigator();
 
 export default function HomeNavigator({ navigation }) {
 
+  
   return(
       <Stack.Navigator>
         <Stack.Screen name="Learning" component={Learning} 
