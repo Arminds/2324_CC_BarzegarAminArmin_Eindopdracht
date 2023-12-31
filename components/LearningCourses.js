@@ -33,11 +33,13 @@ const Card = ({ item }) => (
     <TouchableOpacity style={styles.exercise2} onPress={(navigate ) => {}}>
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
-          <Image style={{ width: 21, height: 20, margin: 16 }} source={trophy} />
+          <Image style={{ width: 21, height: 20, margin: 16, marginBottom: 2, }} source={trophy} />
+          <Text style={styles.body3}>{item.Difficulty}</Text>
         </View>
         <View>
           <Text style={styles.header2}>{item.Title}</Text>
-          <Text style={styles.body2}>Rank {item.Difficulty} or above</Text>
+          <Text style={{ ...styles.body2, flexWrap: 'wrap', width: 220, }}>{item.Description.slice(0, 50)}...</Text>
+
         </View>
         <View style={styles.goTo}>
           <Text style={styles.goText}>→</Text>
@@ -64,6 +66,11 @@ const styles = StyleSheet.create({
     left: 12,
     fontFamily: 'Inter_400Regular',
   },
+  body3: {
+    color: 'white',
+    fontWeight: '600',
+    marginBottom: 12,
+  },
   exercise: {
     backgroundColor: 'white',
     margin: 20,
@@ -83,6 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     borderRadius: 16,
     marginHorizontal: 10,
+    alignItems: 'center',
   },
   goTo: {
     backgroundColor: 'blue',
