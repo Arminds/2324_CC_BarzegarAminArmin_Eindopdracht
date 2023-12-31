@@ -1,12 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
-import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light} from '@expo-google-fonts/inter';
+import { StyleSheet, Image, Text, View } from 'react-native';
+import { useFonts, Inter_900Black, Inter_700Bold, Inter_400Regular, Inter_300Light } from '@expo-google-fonts/inter';
 
+import * as authService from '../../components/authService';
+import useNetwork from '../../data/Knitting';
 
-
-
-export default function Profile({navigation}) {
+export default function Profile({ navigation, route }) {
+  const { data, isLoading, isError } = useNetwork();
+  const authenticatedUser = authService.getAuthenticatedUser() || {};
+  const { username } = authenticatedUser;
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_900Black,
@@ -15,60 +18,78 @@ export default function Profile({navigation}) {
     Inter_300Light,
   });
 
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <Text>Loading...</Text>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
 
-  const axearminimage = require('../../assets/axearmin.png'); //constante voor foto
-  const starIcon = require('../../assets/star.png'); //constante voor foto
+  if (isError) {
+    return (
+      <View style={styles.container}>
+        <Text>Error loading data</Text>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
+  const { Users } = data;
+  const authenticatedUserData = Users.find((user) => user.Username === username);
+  const profileImage = authenticatedUserData ? authenticatedUserData.ProfileImage : '';
+  const rank = authenticatedUserData ? authenticatedUserData.Rank : '';
+
+  console.log("Authenticated User:", authenticatedUser);
+  console.log("Profile Image:", profileImage);
+
+  const axearminimage = require('../../assets/axearmin.png');
+  const starIcon = require('../../assets/star.png');
+
+  const BASE_URL = 'https://armin.vaw.be/';
 
   return (
     <View style={styles.container}>
       <Image
         style={styles.profilePicture}
-        source={axearminimage}
+        source={{ uri: BASE_URL + profileImage }}
       />
-     <Text style={styles.header}>Lora Sylvia</Text>
-     <View style={styles.rank}>
-       <View style={styles.gridRank}>
-        <Image
-          style={styles.iconRank}
-          source={starIcon}
-        />
+      <Text style={styles.header}>{username}</Text>
+      <View style={styles.rank}>
+        <View style={styles.gridRank}>
+          <Image
+            style={styles.iconRank}
+            source={starIcon}
+          />
+        </View>
+        <View style={styles.gridRank}>
+          <Text style={styles.body}>{rank}</Text>
+        </View>
       </View>
-      <View style={styles.gridRank}>
-        <Text style={styles.body}>49</Text>
-      </View>
-     </View>
-
-
       <View style={styles.profileInfo}>
-
         <View>
           <View style={styles.gridItem}>
             <Text style={styles.body}>32</Text>
             <Text style={styles.body2}>Blogs</Text>
           </View>
         </View>
-
         <View style={styles.Divider}></View>
-
         <View>
           <View style={styles.gridItem}>
             <Text style={styles.body}>46</Text>
             <Text style={styles.body2}>Followers</Text>
           </View>
         </View>
-
         <View style={styles.Divider}></View>
-
         <View>
           <View style={styles.gridItem}>
             <Text style={styles.body}>126</Text>
             <Text style={styles.body2}>Following</Text>
           </View>
         </View>
-
       </View>
-
-    <StatusBar style="auto" />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -82,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingTop: 72,
   },
-  profilePicture: { //pfp
+  profilePicture: {
     width: 60,
     height: 60,
     margin: 0,
@@ -90,54 +111,48 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: 'grey',
   },
-  header: { //nameUser
+  header: {
     color: '#FFF',
     fontSize: 24,
     fontFamily: 'Inter_700Bold',
-    textAlign:'center' // centers the necessary elements
+    textAlign: 'center',
   },
-
-  // start usersRank ->
-  iconRank: { //starIcon
+  iconRank: {
     width: 22,
     height: 22,
   },
-  body: { //body font
+  body: {
     color: '#FFF',
     fontSize: 16,
-    fontFamily: 'Inter_400Regular', // Doesnt work???????????????????
-    textAlign:'center' // centers the necessary elements
+    fontFamily: 'Inter_400Regular',
+    textAlign: 'center',
   },
-  body2: { //body font
+  body2: {
     color: 'grey',
     fontSize: 12,
-    fontFamily: 'Inter_400Regular', // Doesnt work???????????????????
-    textAlign:'center' // centers the necessary elements
+    fontFamily: 'Inter_400Regular',
+    textAlign: 'center',
   },
   rank: {
-    flexDirection: 'row', // horizontal grid
+    flexDirection: 'row',
     padding: 6,
     margin: 24,
-    alignItems:'center',
+    alignItems: 'center',
     borderRadius: 24,
-    backgroundColor:'blue'
+    backgroundColor: 'blue',
   },
   gridRank: {
-    marginHorizontal: 2, // Adjust margin as needed
+    marginHorizontal: 2,
   },
-  // end usersRank <-
-
-  // start userInfo (blogs followers following) ->
   profileInfo: {
     flexDirection: 'row',
   },
   gridItem: {
-    marginHorizontal: 24, // Adjust margin as needed
+    marginHorizontal: 24,
   },
   Divider: {
     width: 1,
     height: '100%',
-    backgroundColor:'#2B2B2B'
-  }
-  // end userInfo (blogs followers following) <-
+    backgroundColor: '#2B2B2B',
+  },
 });

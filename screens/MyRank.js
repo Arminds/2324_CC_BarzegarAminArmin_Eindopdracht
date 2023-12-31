@@ -2,10 +2,11 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
-
 export default function MyRank({navigation}) {
   return (
+      
       <View style={styles.container}>
+
 
         <Text style={styles.explainTitle}>
           My rank
