@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import useNetwork from '../../data/Knitting';
 
+import * as authService from '../../components/authService';
+import useNetwork from '../../data/Knitting';
 
 const Stack = createNativeStackNavigator();
 const others = require('../../assets/aiImages/3.jpeg');
@@ -11,6 +12,16 @@ const watch = require('../../assets/aiImages/1.jpeg');
 const star = require('../../assets/star.png')
 
 export default function Battles({item, navigation}) {
+  const { data, isLoading, isError } = useNetwork();
+  const authenticatedUser = authService.getAuthenticatedUser() || {};
+  const { username } = authenticatedUser;
+
+  const { Users } = data;
+  const authenticatedUserData = Users.find((user) => user.Username === username);
+  const rank = authenticatedUserData ? authenticatedUserData.Rank : '';
+
+  console.log("Authenticated User:", authenticatedUser);
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <TouchableOpacity style={styles.bugfix2} onPress={() => {
@@ -64,7 +75,7 @@ export default function Battles({item, navigation}) {
             source={star}
           />
           <Text style={styles.header3}>
-            286
+            {rank}
           </Text>
         </View>
         <View>

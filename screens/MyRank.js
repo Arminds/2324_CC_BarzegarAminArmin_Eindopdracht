@@ -2,7 +2,20 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
+import * as authService from '../components/authService';
+import useNetwork from '../data/Knitting';
+
 export default function MyRank({navigation}) {
+  const { data, isLoading, isError } = useNetwork();
+  const authenticatedUser = authService.getAuthenticatedUser() || {};
+  const { username } = authenticatedUser;
+
+  const { Users } = data;
+  const authenticatedUserData = Users.find((user) => user.Username === username);
+  const rank = authenticatedUserData ? authenticatedUserData.Rank : '';
+
+  console.log("Authenticated User:", authenticatedUser);
+
   return (
       
       <View style={styles.container}>
@@ -48,7 +61,7 @@ export default function MyRank({navigation}) {
         <View style={styles.boxBig}>
           <View style={styles.box2}>
             <Text style={styles.bigText}>
-              33
+              32
             </Text>
             <Text style={styles.description}>
               Blogs posted
@@ -67,7 +80,7 @@ export default function MyRank({navigation}) {
           </View>
           <View style={styles.box}>
             <Text style={styles.bigText}>
-              843
+              {rank}
             </Text>
             <Text style={styles.description}>
               Total score
