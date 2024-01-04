@@ -110,6 +110,7 @@ export default function App() {
             name="BattlesNavigator" 
             component={BattlesNavigator} 
             options= {{
+              headerShown: false,
               tabBarLabel: 'Battles',
               headerStyle: {
                 backgroundColor: '#000000',
