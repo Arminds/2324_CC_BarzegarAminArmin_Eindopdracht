@@ -40,9 +40,13 @@ export default function Profile({ navigation, route }) {
   const authenticatedUserData = Users.find((user) => user.Username === username);
   const profileImage = authenticatedUserData ? authenticatedUserData.ProfileImage : '';
   const rank = authenticatedUserData ? authenticatedUserData.Rank : '';
+  const followers = authenticatedUserData ? authenticatedUserData.Followers : '0';
+  const following = authenticatedUserData ? authenticatedUserData.Following : '0';
 
   console.log("Authenticated User:", authenticatedUser);
   console.log("Profile Image:", profileImage);
+  console.log("Followers Count:", followers);
+  console.log("Following Count:", following);
 
   const axearminimage = require('../../assets/axearmin.png');
   const starIcon = require('../../assets/star.png');
@@ -77,14 +81,14 @@ export default function Profile({ navigation, route }) {
         <View style={styles.Divider}></View>
         <View>
           <View style={styles.gridItem}>
-            <Text style={styles.body}>46</Text>
+            <Text style={styles.body}>{followers}</Text>
             <Text style={styles.body2}>Followers</Text>
           </View>
         </View>
         <View style={styles.Divider}></View>
         <View>
           <View style={styles.gridItem}>
-            <Text style={styles.body}>126</Text>
+            <Text style={styles.body}>{following}</Text>
             <Text style={styles.body2}>Following</Text>
           </View>
         </View>

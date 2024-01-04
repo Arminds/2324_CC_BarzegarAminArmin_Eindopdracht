@@ -23,13 +23,15 @@ export default function Learning({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.recommendation}>
-      <Image style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute' }} source={recommendationImage} />
-      <View style={styles.imageTextContainer}>
-        <Text style={styles.body}>BEGINNERS GUIDE</Text>
-        <Text style={styles.header}>HOW TO KNIT →</Text>
+        <Image style={{ width: '100%', height: '100%', borderRadius: 24, position: 'absolute' }} source={recommendationImage} />
+        <View style={styles.imageTextContainer}>
+          <Text style={styles.body}>BEGINNERS GUIDE</Text>
+          <Text style={styles.header}>HOW TO KNIT →</Text>
+        </View>
       </View>
-    </View>
-      <LearningCourses/>
+      <View style={styles.containerCourses}>
+        <LearningCourses/>
+      </View>
     </View>
   );
 }
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'top',
     padding: 24,
     paddingTop: 12,
+    height: 12,
   },
   recommendation: {
     backgroundColor: 'grey',
@@ -126,6 +129,10 @@ const styles = StyleSheet.create({
     color:'white',
     backgroundColor: 'blue',
     padding: 12,
+  },
+
+  containerCourses:{
+    height: '60%',
   }
 });
 

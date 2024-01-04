@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Button, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import useNetwork from '../data/Knitting';
 import { Formik } from 'formik';
 
-
 import * as authService from '../components/authService';
-
-import useNetwork from '../data/Knitting';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -29,14 +27,15 @@ const Login = ({ onLogin }) => {
       authService.login(username, password);
       onLogin();
     } else {
-      console.error('Invalid username or password');
-      setError("Invalid username or password");
+      console.error('!Invalid username or password!');
+      setError("!Invalid username or password!");
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Log in</Text>
+      <Text style={styles.title}>Be a part of the first social media knitting club</Text>
+      <Text style={styles.body}>Sign in to your account</Text>
       <Formik
         initialValues={{ username: '', password: '' }}
         onSubmit={(values) => {
@@ -88,26 +87,34 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 240,
   },
   title: {
-    fontSize: 20,
-    marginBottom: 16,
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginBottom: 6,
+    width: 320,
+  },
+  body: {
+    fontSize: 16,
+    marginBottom: 48,
+    width: 320,
   },
   textInputContainer: {
     marginBottom: 16,
-    width: 300,
+    width: 340,
   },
   textInput: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingLeft: 8,
-    borderRadius: 5,
+    //borderColor: 'gray',
+    backgroundColor:'#F1F1F1',
+    borderWidth: 0,
+    paddingLeft: 24,
+    borderRadius: 24,
   },
   buttonContainer: {
-    marginTop: 16,
-    width: 300,
-    borderRadius: 5,
+    width: 340,
+    borderRadius: 24,
     overflow: 'hidden',
     backgroundColor: 'blue',
   },
