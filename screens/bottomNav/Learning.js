@@ -30,7 +30,7 @@ export default function Learning({ navigation }) {
         </View>
       </View>
       <View style={styles.containerCourses}>
-        <LearningCourses/>
+        <LearningCourses navigation={navigation}/>
       </View>
     </View>
   );

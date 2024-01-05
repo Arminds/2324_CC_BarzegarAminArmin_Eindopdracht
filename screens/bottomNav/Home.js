@@ -6,8 +6,6 @@ import Post from '../../components/Post.js'
 
 import LikeIconSvg from '../../assets/Like.svg'
 
-
-
 export default function Home({ navigation }) {
   
   const likeIconSvg = require('../../assets/Like.svg')
@@ -23,7 +21,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Post/>
+      <Post navigation={navigation} />
     </View>
   );
 }
@@ -67,7 +65,17 @@ const styles = StyleSheet.create({
     width: 1,
     height: 20,
     marginHorizontal: 4,
-  }
+  },
+  blogButton: {
+    backgroundColor: 'black',
+    padding: 12,
+    margin: 6,
+    borderRadius: 6,
+  },
+  blogButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
 });
 
 /*

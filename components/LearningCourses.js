@@ -4,7 +4,7 @@ import useNetwork from '../data/Knitting';
 
 const trophy = require('../assets/restIcon/trophy.png');
 
-const Learning = () => {
+const Learning = ({navigation}) => {
   const { data, isLoading, isError } = useNetwork();
 
   if (isError) {
@@ -16,7 +16,7 @@ const Learning = () => {
       {data?.LearningCourses ? (
         <FlatList
           data={data.LearningCourses}
-          renderItem={({ item }) => <Card item={item}/>}
+          renderItem={({ item }) => <Card item={item} navigation={navigation}/>}
           keyExtractor={(item) => item.CourseID.toString()}
           style={styles.flatList}
           showsVerticalScrollIndicator={false}
@@ -28,9 +28,9 @@ const Learning = () => {
   );
 };
 
-const Card = ({ item }) => (
+const Card = ({ item, navigation }) => (
   <View style={styles.container}>
-    <TouchableOpacity style={styles.exercise2} onPress={(navigate ) => {}}>
+    <TouchableOpacity style={styles.exercise2} onPress={() => {navigation.navigate('Exercise')}}>
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
           <Image style={{ width: 21, height: 20, margin: 16, marginBottom: 2, }} source={trophy} />

@@ -6,7 +6,7 @@ const likeIcon = require('../assets/Like.png');
 const commentIcon = require('../assets/Comment.png');
 const shareIcon = require('../assets/Share.png');
 
-const Post = () => {
+const Post = ({navigation}) => {
   const {data, isLoading, isError} = useNetwork()
   //console.log("API DATA", data);
 
@@ -33,7 +33,7 @@ const Post = () => {
       {sortedData ? (
         <FlatList
           data={sortedData}
-          renderItem={({ item }) => <Card item={item} />}
+          renderItem={({ item }) => <Card item={item} navigation={navigation} />}
           keyExtractor={(item) => item.PostID}
           style={styles.flatList}
            showsVerticalScrollIndicator={false}
@@ -45,7 +45,7 @@ const Post = () => {
   );
 };
 
-const Card = ({ item }) => (
+const Card = ({ item, navigation }) => (
   <View style={styles.card}>
     <View style={styles.flexer}>
       <Image source={{ uri: item.ProfileImage}} style={styles.avatar} />
@@ -58,16 +58,13 @@ const Card = ({ item }) => (
       <TouchableOpacity style={styles.blogButton} onPress={() => { navigation.navigate('BlogPost') }}>
         <Text style={styles.blogButtonText}>Read The Blog →</Text>
       </TouchableOpacity>
-
       <View style={styles.interactionBar}>
         <TouchableOpacity>
           <Image style={{ width: 20, height: 18 }} source={likeIcon} />
         </TouchableOpacity>
-
         <TouchableOpacity>
           <Image style={{ width: 20, height: 20 }} source={commentIcon} />
         </TouchableOpacity>
-        
         <TouchableOpacity>
           <Image style={{ width: 18, height: 19 }} source={shareIcon} />
         </TouchableOpacity>
