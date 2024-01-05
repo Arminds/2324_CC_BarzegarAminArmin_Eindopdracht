@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Button, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import useNetwork from '../data/Knitting';
@@ -9,13 +9,11 @@ import * as authService from '../components/authService';
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
   const [error, setError] = useState(null);
-
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const { data, isLoading } = useNetwork();
 
   const handleLogin = () => {
-    // Check if the provided username and password match any user in the API response
     console.log('Entered Credentials:', { username, password });
 
     const user = data?.Users.find(
@@ -23,14 +21,20 @@ const Login = ({ onLogin }) => {
     );
 
     if (user) {
-      // Successful login, call onLogin to update the state in App.js
       authService.login(username, password);
       onLogin();
     } else {
-      console.error('!Invalid username or password!');
-      setError("!Invalid username or password!");
+      console.error('Invalid username or password!');
+      setError("Invalid username or password!");
     }
   };
+
+  useEffect(() => {
+    if (formSubmitted && username !== '' && password !== '') {
+      handleLogin();
+      setFormSubmitted(false); // Reset the formSubmitted state
+    }
+  }, [formSubmitted, username, password]);
 
   return (
     <View style={styles.container}>
@@ -39,9 +43,9 @@ const Login = ({ onLogin }) => {
       <Formik
         initialValues={{ username: '', password: '' }}
         onSubmit={(values) => {
-          setUsername(values.username); // Update the state with the current values
+          setUsername(values.username);
           setPassword(values.password);
-          handleLogin(); // Call handleLogin after updating the state
+          setFormSubmitted(true); // Set formSubmitted to true on form submission
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -106,7 +110,6 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    //borderColor: 'gray',
     backgroundColor:'#F1F1F1',
     borderWidth: 0,
     paddingLeft: 24,

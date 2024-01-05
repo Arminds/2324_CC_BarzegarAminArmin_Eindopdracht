@@ -20,7 +20,6 @@ const battlesIcon = require('./assets/Icons/Battles.png');
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false); 
-  
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_900Black,
