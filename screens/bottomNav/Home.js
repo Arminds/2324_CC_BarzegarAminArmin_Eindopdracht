@@ -10,11 +10,12 @@ export default function Home({ navigation }) {
   
   const likeIconSvg = require('../../assets/Like.svg')
   const [likeColor, setLikeColor] = useState('white');
+  /*
   const handleLikePress = () => {
     const newColor = likeColor === 'white' ? 'red' : 'white';
     setLikeColor(newColor);
     // You can perform additional actions here when the LikeIconSvg is pressed
-  };
+  };*/
 
   const {data, isLoading, isError} = useNetwork()
   //console.log(data);

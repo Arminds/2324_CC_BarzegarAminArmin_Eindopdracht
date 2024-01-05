@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import useNetwork from '../data/Knitting';
+import LikeIconSvg from '../assets/Like.svg';
 
-const likeIcon = require('../assets/Like.png');
 const commentIcon = require('../assets/Comment.png');
 const shareIcon = require('../assets/Share.png');
 
-const Post = ({navigation}) => {
-  const {data, isLoading, isError} = useNetwork()
-  //console.log("API DATA", data);
+const Post = ({ navigation }) => {
+  const { data, isLoading, isError } = useNetwork();
 
   if (isError) {
     return <Text>Error loading posts</Text>;
@@ -36,7 +35,7 @@ const Post = ({navigation}) => {
           renderItem={({ item }) => <Card item={item} navigation={navigation} />}
           keyExtractor={(item) => item.PostID}
           style={styles.flatList}
-           showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
         />
       ) : (
         <Text>Loading...</Text>
@@ -45,38 +44,66 @@ const Post = ({navigation}) => {
   );
 };
 
-const Card = ({ item, navigation }) => (
-  <View style={styles.card}>
-    <View style={styles.flexer}>
-      <Image source={{ uri: item.ProfileImage}} style={styles.avatar} />
-      <Text style={styles.userName}>{item.Username}</Text>
-    </View>
+const Card = ({ item, navigation }) => {
+  const [isLiked, setIsLiked] = useState(false);
 
-    <Image source={{ uri: 'https://armin.vaw.be/' + item.Media}} style={styles.postImage} />
+  const handleLikePress = () => {
+    setIsLiked(!isLiked);
+    // Additional logic for handling like press
+  };
 
-    <View style={styles.flexer2}>
-      <TouchableOpacity style={styles.blogButton} onPress={() => { navigation.navigate('BlogPost') }}>
-        <Text style={styles.blogButtonText}>Read The Blog →</Text>
-      </TouchableOpacity>
-      <View style={styles.interactionBar}>
-        <TouchableOpacity>
-          <Image style={{ width: 20, height: 18 }} source={likeIcon} />
+  return (
+    <View style={styles.card}>
+      <View style={styles.flexer}>
+        <Image source={{ uri: item.ProfileImage }} style={styles.avatar} />
+        <Text style={styles.userName}>{item.Username}</Text>
+      </View>
+
+      <Image source={{ uri: 'https://armin.vaw.be/' + item.Media }} style={styles.postImage} />
+
+      <View style={styles.flexer2}>
+        <TouchableOpacity style={styles.blogButton} onPress={() => { 
+          navigation.navigate('BlogPost', 
+          {Username: item.Username ,
+          Title: item.Title , 
+          Content: item.Content , 
+          Datum: item.Datum ,
+          Likes: item.Likes ,
+          Media: item.Media },
+          )}}>
+
+          <Text style={styles.blogButtonText}>Read The Blog →</Text>
+
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Image style={{ width: 20, height: 20 }} source={commentIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Image style={{ width: 18, height: 19 }} source={shareIcon} />
-        </TouchableOpacity>
+
+        <View style={styles.interactionBar}>
+          <TouchableOpacity onPress={handleLikePress}>
+            {isLiked ? (
+              <LikeIconSvg width={20} height={19} fill="red" />
+            ) : (
+              <LikeIconSvg width={20} height={19} fill="white" />
+            )}
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Image style={{ width: 20, height: 20 }} source={commentIcon} />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Image style={{ width: 18, height: 19 }} source={shareIcon} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    paddingBottom: 80, // Add some padding at the bottom
+
   },
   card: {
     backgroundColor: '#141414',
@@ -124,7 +151,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  }
+  },
+  flatList: {
+    // Add any additional styles for FlatList if needed
+  },
 });
 
 export default Post;

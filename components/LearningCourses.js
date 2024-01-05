@@ -30,7 +30,12 @@ const Learning = ({navigation}) => {
 
 const Card = ({ item, navigation }) => (
   <View style={styles.container}>
-    <TouchableOpacity style={styles.exercise2} onPress={() => {navigation.navigate('Exercise')}}>
+    <TouchableOpacity style={styles.exercise2} onPress={() => 
+    {navigation.navigate('Exercise',
+    { Title: item.Title ,
+      Description: item.Description , 
+      Difficulty: item.Difficulty} ,
+      )}}>
       <View style={styles.exercise}>
         <View style={styles.techniqueIcon}>
           <Image style={{ width: 21, height: 20, margin: 16, marginBottom: 2, }} source={trophy} />
