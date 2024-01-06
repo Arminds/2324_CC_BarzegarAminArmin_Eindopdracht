@@ -17,11 +17,15 @@ const Post = ({ navigation }) => {
 
   const joinedData = data?.BlogPosts.map((blogPost) => {
     const user = data.Users.find((user) => user.UserID === blogPost.UserID);
+    const comments = data.BlogComments.filter((comment) => comment.PostID === blogPost.PostID);
+
     return {
       ...blogPost,
       Username: user?.Username || 'Unknown',
       Email: user?.Email || 'Unknown',
       ProfileImage: user?.ProfileImage ? BASE_URL + user.ProfileImage : 'DefaultImageURL',
+      Comments: comments || [], // Include comments for each post
+
     };
   });
 
@@ -58,6 +62,7 @@ const Card = ({ item, navigation }) => {
         <Image source={{ uri: item.ProfileImage }} style={styles.avatar} />
         <Text style={styles.userName}>{item.Username}</Text>
       </View>
+      
 
       <Image source={{ uri: 'https://armin.vaw.be/' + item.Media }} style={styles.postImage} />
 
@@ -69,7 +74,8 @@ const Card = ({ item, navigation }) => {
           Content: item.Content , 
           Datum: item.Datum ,
           Likes: item.Likes ,
-          Media: item.Media },
+          Media: item.Media ,
+          Comments: item.Comments } ,
           )}}>
 
           <Text style={styles.blogButtonText}>Read The Blog →</Text>
