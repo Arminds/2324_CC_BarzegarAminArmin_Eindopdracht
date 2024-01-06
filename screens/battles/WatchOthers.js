@@ -2,11 +2,15 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
+import UsersBattles from '../../components/UsersBattles.js'
 
 export default function WatchOthers({navigation}) {
   return (
       <View style={styles.container}>
-        <Text style={styles.text}>WatchOthers</Text>
+        <Text style={styles.title}>Watch Pro-Knitters to learn from the best</Text>
+        <Text style={styles.body}>Watch how pros knit and listen to their thought proces.</Text>
+        <UsersBattles/>
+
         <StatusBar style="auto"/>
       </View>
   );
@@ -21,7 +25,18 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingTop: 12,
   },
-  text: {
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginTop: 24,
+    marginBottom: 12,
+    width: '100%',
     color: 'white',
-  }
+  },
+  body: {
+    fontSize: 16,
+    marginBottom: 48,
+    width: '100%',
+    color: 'grey',
+  },
 });
