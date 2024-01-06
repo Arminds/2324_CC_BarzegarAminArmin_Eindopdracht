@@ -4,7 +4,7 @@ import useNetwork from '../data/Knitting';
 
 const BASE_URL = 'https://armin.vaw.be/';
 
-const BattleOthers = () => {
+const UsersBattlesWatch = () => {
   const { data, isLoading, isError } = useNetwork();
 
   if (isError) {
@@ -49,7 +49,7 @@ const UserCard = ({ user }) => {
         </View>
         <TouchableOpacity style={styles.goTo}>
             <Text style={styles.goText}>
-                Send request →
+                Watch others →
             </Text>
         </TouchableOpacity>
     </View>
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default BattleOthers;
+export default UsersBattlesWatch;

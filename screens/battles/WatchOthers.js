@@ -2,14 +2,14 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, LogBox, ScrollView, Button, TouchableOpacity } from 'react-native';
 
-import UsersBattles from '../../components/UsersBattles.js'
+import UsersBattlesWatch from '../../components/UsersBattlesWatch.js'
 
 export default function WatchOthers({navigation}) {
   return (
       <View style={styles.container}>
         <Text style={styles.title}>Watch Pro-Knitters to learn from the best</Text>
         <Text style={styles.body}>Watch how pros knit and listen to their thought proces.</Text>
-        <UsersBattles/>
+        <UsersBattlesWatch/>
 
         <StatusBar style="auto"/>
       </View>
